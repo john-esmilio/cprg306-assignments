@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({onAddItem}) {
 
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -11,12 +11,12 @@ export default function NewItem() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    alert(`Added ${name}, quantity: ${quantity} to the ${category} category!`);
-
-    setName("");
-    setQuantity(1);
-    setCategory("produce");
-  }
+    onAddItem({
+      name: name,
+      quantity: quantity,
+      category: category
+    });
+  };
 
   return(
     <main className="flex justify-center w-full">
@@ -42,7 +42,7 @@ export default function NewItem() {
           </select>
         </div>
 
-        <button type = "submit" className ="w-half mt-3 bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add</button>
+        <button type = "submit" className="w-half mt-3 bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add</button>
       </form>
     </main>
   )

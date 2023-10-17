@@ -7,7 +7,5 @@ export default function Item({name, quantity, category}) {
         <p>In {category} aisle</p> 
       </li>
     </ul>
-
-
   )
 }
