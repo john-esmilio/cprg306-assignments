@@ -12,22 +12,25 @@ export default function Home() {
           <StudentInfo />
           <ul>
             <li>
-              <Link href="/week2">Week 2</Link>
+              <Link href="/week2" className='hover:text-fuchsia-200'>Week 2</Link>
             </li>
             <li>
-              <Link href="/week3">Week 3</Link>
+              <Link href="/week3" className='hover:text-fuchsia-300'>Week 3</Link>
             </li>
             <li>
-              <Link href="/week4">Week 4</Link>
+              <Link href="/week4" className='hover:text-fuchsia-400'>Week 4</Link>
             </li>
             <li>
-              <Link href="/week5">Week 5</Link>
+              <Link href="/week5" className='hover:text-fuchsia-500'>Week 5</Link>
             </li>
             <li>
-              <Link href="/week6">Week 6</Link>
+              <Link href="/week6" className='hover:text-fuchsia-600'>Week 6</Link>
             </li>
             <li>
-              <Link href="/week7">Week 7</Link>
+              <Link href="/week7" className='hover:text-fuchsia-700'>Week 7</Link>
+            </li>
+            <li>
+              <Link href="/week8" className='hover:text-fuchsia-800'>Week 8</Link>
             </li>
           </ul>
         </div>
