@@ -2,16 +2,18 @@
 import { useUserAuth } from "../_utils/auth-context";
 import ItemList from "./item-list.js";
 import NewItem from "./new-item.js";
-import itemsData from "./items.json";
-import React from "react";
+import React, {useEffect} from "react";
 import MealIdeas from "./meal-ideas.js";
+import {getItems, addItem} from "../_services/shopping-list-service.js";
 
 export default function Page() {
-  const [items, setItems] = React.useState(itemsData);
+  const [items, setItems] = React.useState([]);
   const [selectedItemName, setSelectedItemName] = React.useState("");
 
   const handleAddItem = newItem => {
-    setItems([...items, newItem]);
+    const itemID = addItem(user.uid, newItem);
+    const updateItems = [...items, {id: itemID, ...newItem}];
+    setItems(updateItems);
   };
 
   const handleItemSelect = (item) => {
@@ -25,6 +27,15 @@ export default function Page() {
     window.location.href = "../";
     return null;
   }
+
+  async function loadItems() {
+    const items = await getItems(user.uid);
+    setItems(items);
+  }
+
+  useEffect(() => {
+    loadItems();
+  }, [user.uid]);
 
   return(
     <div className="flex">
